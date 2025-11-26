@@ -1,0 +1,39 @@
+import { Task } from "@/types";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { ClockIcon } from "@heroicons/react/24/outline";
+import { ButtonSecondary } from "@/components/ui/buttons";
+import { TaskActionDropdown } from "@/components/dashboard/TaskActionDropdown";
+import { TaskAvatarGroup } from "@/components/dashboard/TaskAvatarGroup";
+
+interface IProps {
+  task: Task;
+}
+
+const DashTaskCard = ({ task }: IProps) => {
+  return (
+    <div className="flex cursor-pointer flex-col h-full min-h-[200px] md:min-h-0 overflow-hidden bg-white rounded-lg p-[14px] xl:p-[18px]">
+      <div className="flex items-center justify-between">
+        <h3 className="font-medium line-clamp-1 2xl:line-clamp-2 text-xs xl:text-base">
+          {task.title}
+        </h3>
+        <TaskActionDropdown />
+      </div>
+
+      <div className="my-2 xl:my-4 md:min-h-[45px] flex-1 overflow-hidden">
+        <p className="text-xs xl:text-sm leading-5 text-gray-200 line-clamp-3">
+          {task.description}
+        </p>
+      </div>
+      <div className="flex justify-between items-center mt-auto">
+        <div>
+          <ButtonSecondary>
+            <ClockIcon className="md:w-2 md:h-2 xl:w-3 xl:h-3" />7 March
+          </ButtonSecondary>
+        </div>
+        <TaskAvatarGroup />
+      </div>
+    </div>
+  );
+};
+
+export default DashTaskCard;
