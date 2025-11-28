@@ -11,7 +11,7 @@ interface IProps {
 
 const DashTaskCard = ({ task }: IProps) => {
   return (
-    <div className="flex cursor-pointer flex-col h-full min-h-[200px] md:min-h-0 overflow-hidden bg-white rounded-lg p-[14px] xl:p-[18px]">
+    <div className="flex cursor-pointer flex-col h-full min-h-50 md:min-h-0 overflow-hidden bg-white rounded-lg p-3 xl:p-4">
       <div className="flex items-center justify-between">
         <h3 className="font-medium line-clamp-1 2xl:line-clamp-2 text-xs xl:text-base">
           {task.title}
@@ -19,7 +19,7 @@ const DashTaskCard = ({ task }: IProps) => {
         <TaskActionDropdown />
       </div>
 
-      <div className="my-2 xl:my-4 md:min-h-[45px] flex-1 overflow-hidden">
+      <div className="my-2 xl:my-4 md:min-h-11 flex-1 overflow-hidden">
         <p className="text-xs xl:text-sm leading-5 text-gray-200 line-clamp-3">
           {task.description}
         </p>
