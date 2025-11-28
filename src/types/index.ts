@@ -20,6 +20,11 @@ export enum StatusTypes {
   completed = "completed",
 }
 
+export interface TaskColumn {
+  title: StatusTypes;
+  tasks: Task[];
+}
+
 export type ButtonType =
   | "default"
   | "destructive"
