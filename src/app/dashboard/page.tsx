@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   if (isLoading) return <div className="p-8">Loading…</div>;
   if (error) return <div className="p-8">Failed to load tasks</div>;
-  if (!data || data.length === 0) return <div className="p-8">No tasks</div>;
+  if (!data || data.length === 0) return <div className="p-8">No tasks...</div>;
 
   const date = getDate(data);
   const toDoTasks = getStatusCount(data, StatusTypes.toDo);
