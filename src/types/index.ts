@@ -25,6 +25,10 @@ export interface TaskColumn {
   tasks: Task[];
 }
 
+export type TaskSelectData = {
+  columnsTasks: TaskColumn[];
+};
+
 export type ButtonType =
   | "default"
   | "destructive"
