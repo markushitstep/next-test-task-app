@@ -1,5 +1,4 @@
 import { Task } from "@/types";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import { ButtonSecondary } from "@/components/ui/buttons";
 import { TaskActionDropdown } from "@/components/dashboard/TaskActionDropdown";
@@ -13,13 +12,11 @@ const DashTaskCard = ({ task }: IProps) => {
   return (
     <div className="flex cursor-pointer flex-col h-full min-h-50 md:min-h-0 overflow-hidden bg-white rounded-lg p-3 xl:p-4">
       <div className="flex items-center justify-between">
-        <h3 className="font-medium line-clamp-1 2xl:line-clamp-2 text-xs xl:text-base">
-          {task.title}
-        </h3>
+        <h3 className="font-medium line-clamp-1 text-xs xl:text-base">{task.title}</h3>
         <TaskActionDropdown />
       </div>
 
-      <div className="my-2 xl:my-4 md:min-h-11 flex-1 overflow-hidden">
+      <div className="my-2 xl:my-3 md:min-h-11 flex-1 overflow-hidden">
         <p className="text-xs xl:text-sm leading-5 text-gray-200 line-clamp-3">
           {task.description}
         </p>
