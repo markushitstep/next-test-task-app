@@ -14,26 +14,25 @@ interface IProps {
   navItem: NavItemType;
 }
 
-const NavigationItem = ({ navItem }: IProps) => {
+const NavigationItem = ({ navItem: { href, label } }: IProps) => {
   const locationsPath = usePathname();
-  const isActive = locationsPath === navItem.href;
-  const isSettings = navItem.label === "Setting";
+  const isActive = locationsPath === href;
+  const isSettings = label === "Setting";
+  let icon;
 
-  const icon = isSettings
-    ? isActive
-      ? settingFill
-      : setting
-    : isActive
-    ? dashboardFill
-    : dashboard;
+  if (isSettings) {
+    icon = isActive ? settingFill : setting;
+  } else {
+    icon = isActive ? dashboardFill : dashboard;
+  }
 
   return (
     <Link
-      href={navItem.href}
+      href={href}
       className={cn("text-gray-100 flex items-center gap-3", { "text-green-100": isActive })}
     >
-      <Image src={icon} alt={`${navItem.label} img`} />
-      {navItem.label}
+      <Image src={icon} alt={`${label} img`} />
+      {label}
     </Link>
   );
 };
