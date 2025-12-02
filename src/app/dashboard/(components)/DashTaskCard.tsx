@@ -3,12 +3,14 @@ import { ClockIcon } from "@heroicons/react/24/outline";
 import { ButtonSecondary } from "@/components/ui/buttons";
 import { TaskActionDropdown } from "@/components/dashboard/TaskActionDropdown";
 import { TaskAvatarGroup } from "@/components/dashboard/TaskAvatarGroup";
+import { getTodayDate } from "@/lib/utils";
 
 interface IProps {
   task: Task;
 }
 
 const DashTaskCard = ({ task }: IProps) => {
+  const { day, month } = getTodayDate();
   return (
     <div className="flex cursor-pointer flex-col h-full min-h-50 md:min-h-0 overflow-hidden bg-white rounded-lg p-3 xl:p-4">
       <div className="flex items-center justify-between">
@@ -24,7 +26,8 @@ const DashTaskCard = ({ task }: IProps) => {
       <div className="flex justify-between items-center mt-auto">
         <div>
           <ButtonSecondary>
-            <ClockIcon className="md:w-2 md:h-2 xl:w-3 xl:h-3" />7 March
+            <ClockIcon className="md:w-2 md:h-2 xl:w-3 xl:h-3" />
+            {`${day} ${month}`}
           </ButtonSecondary>
         </div>
         <TaskAvatarGroup />
