@@ -1,4 +1,4 @@
-import NavigationItem from './NavigationItem';
+import NavigationItem from "./NavigationItem";
 
 export interface NavItemType {
   href: string;
@@ -6,15 +6,15 @@ export interface NavItemType {
 }
 
 const items = [
-  { href: '/dashboard', label: 'Dashboard' },
-  { href: '/settings', label: 'Setting' },
+  { href: "/dashboard", label: "Dashboard" },
+  { href: "/settings", label: "Setting" },
 ];
 
 const Navigation = () => {
   return (
     <nav className="flex flex-col text-sm gap-3">
-      {items.map((item, index) => (
-        <NavigationItem key={index} navItem={item} />
+      {items.map((item) => (
+        <NavigationItem key={item.label} navItem={item} />
       ))}
     </nav>
   );
