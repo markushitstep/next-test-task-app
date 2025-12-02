@@ -12,10 +12,10 @@ const DashColumn = ({ title, tasks }: IProps) => {
   const empty = Math.max(0, 3 - taskItems.length);
 
   return (
-    <div className="flex  flex-col w-full h-full xl:min-h-0">
+    <div className="flex flex-col w-full h-full">
       <ColumnHeader title={title} count={tasks.length} />
 
-      <div className="mt-3 2xl:mt-4 grid md:grid-rows-3 xl:min-h-0 flex-1 gap-4 2xl:gap-6">
+      <div className="mt-3 2xl:mt-4 grid md:grid-rows-3 flex-1 flex flex-col gap-4 2xl:gap-6">
         {taskItems.map((task) => (
           <DashTaskCard key={task.id} task={task} />
         ))}

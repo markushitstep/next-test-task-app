@@ -14,7 +14,7 @@ export default function Dashboard() {
 
   return (
     <MainPageLayout title={"My Tasks"}>
-      <div className="mt-5 2xl:mt-7 h-full min-h-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-8 overflow-y-scroll xl:overflow-none">
+      <div className="mt-5 2xl:mt-7 h-full min-h-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-8 overflow-y-scroll">
         {columnsTasks.map((column) => (
           <DashColumn key={column.title} title={column.title} tasks={column.tasks} />
         ))}

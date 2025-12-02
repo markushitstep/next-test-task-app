@@ -12,7 +12,7 @@ interface IProps {
 const DashTaskCard = ({ task }: IProps) => {
   const { day, month } = getTodayDate();
   return (
-    <div className="flex cursor-pointer flex-col h-full min-h-50 md:min-h-0 overflow-hidden bg-white rounded-lg p-3 xl:p-4">
+    <div className="flex cursor-pointer flex-col h-full min-h-50 min-h-0 overflow-hidden bg-white rounded-lg p-3 xl:p-4">
       <div className="flex items-center justify-between">
         <h3 className="font-medium line-clamp-1 text-xs xl:text-base">{task.title}</h3>
         <TaskActionDropdown />
