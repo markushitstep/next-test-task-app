@@ -1,4 +1,4 @@
-import { DateType, StatusTypes, Task } from "@/types";
+import { DateType, StatusTypes, Task, TaskColumn } from "@/types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -6,13 +6,11 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getDate = (props: Task[]): DateType => {
+export const getTodayDate = (): DateType => {
   const locale = "en-US";
-  const createdAtISO = props[0].createdAt;
+  const d = new Date();
 
-  const d = new Date(createdAtISO);
-
-  const day = d.getDate().toString().padStart(2, "0");
+  const day = d.getDate().toString();
   const month = d.toLocaleString(locale, { month: "long" });
   const year = d.getFullYear();
   const weekday = d.toLocaleString(locale, { weekday: "long" });
@@ -23,3 +21,28 @@ export const getDate = (props: Task[]): DateType => {
 export const getStatusCount = (props: Task[], title: StatusTypes) => {
   return props.filter((p) => p.status === title);
 };
+
+export const mapTaskColumns = (tasks: Task[] | undefined): TaskColumn[] => {
+  if (!tasks || tasks.length === 0) return [];
+
+  return [
+    {
+      title: StatusTypes.toDo,
+      tasks: getStatusCount(tasks, StatusTypes.toDo),
+    },
+    {
+      title: StatusTypes.inProgress,
+      tasks: getStatusCount(tasks, StatusTypes.inProgress),
+    },
+    {
+      title: StatusTypes.review,
+      tasks: getStatusCount(tasks, StatusTypes.review),
+    },
+    {
+      title: StatusTypes.completed,
+      tasks: getStatusCount(tasks, StatusTypes.completed),
+    },
+  ];
+};
+
+export const capitalizedFirstLetter = (string: string) => string[0].toUpperCase() + string.slice(1);
