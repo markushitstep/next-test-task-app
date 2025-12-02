@@ -1,6 +1,7 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { ButtonType } from "@/types";
+import { cn } from "@/lib/utils";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonType;
@@ -33,7 +34,10 @@ export const ButtonSecondary = ({ className = "", ...args }: ButtonProps) => {
   return (
     <CustomButton
       variant={"secondary"}
-      className={`cursor-pointer px-3 py-1 bg-green-100 text-white text-xs hover:!bg-green-200 ${className}`}
+      className={cn(
+        "cursor-pointer px-3 py-1 bg-green-100 text-white text-xs hover:!bg-green-200",
+        className,
+      )}
       {...args}
     />
   );

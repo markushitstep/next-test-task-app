@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
 import { Divide } from "lucide-react";
 import React from "react";
 import { InputHTMLAttributes } from "react";
@@ -15,7 +16,7 @@ interface ImputProps extends InputHTMLAttributes<HTMLInputElement> {
 export const CustomInput = React.forwardRef<HTMLInputElement, ImputProps>(
   ({ wrapperClassName, helperText, className, label, id, type = "text", error, ...args }, ref) => {
     return (
-      <div className={`flex flex-col space-y-2 text-gray-400 ${wrapperClassName}`}>
+      <div className={cn("flex flex-col space-y-2 text-gray-400", wrapperClassName)}>
         {label && (
           <Label className="text-xs" htmlFor={id}>
             {label}
@@ -25,13 +26,14 @@ export const CustomInput = React.forwardRef<HTMLInputElement, ImputProps>(
           ref={ref}
           id={id}
           type={type}
-          className={`border border-gray-300 rounded-lg bg-white h-full !text-sm md:!text-base p-2 md:p-4 shadow-none ${className}`}
+          className={cn(
+            "border border-gray-300 rounded-lg bg-white h-full !text-sm md:!text-base p-2 md:p-4 shadow-none",
+            className,
+          )}
           {...args}
         />
 
         {helperText && !error && <div className="text-xs">{helperText}</div>}
-
-        {/* {error && <div className="text-xs text-red-100">{error}</div>} */}
       </div>
     );
   },

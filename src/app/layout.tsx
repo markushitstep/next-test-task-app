@@ -3,6 +3,7 @@ import { geistMono, geistSans } from "@/fonts";
 import { Providers } from "@/lib/providers";
 import "./globals.css";
 import { Sidebar } from "@/components/layouts/Sidebar";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +19,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className="h-full">
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
+        className={cn("antialiased h-full", geistSans.variable, geistMono.variable)}
       >
         <Providers>
           <div className="h-svh flex">
